@@ -1,4 +1,4 @@
-package br.com.uvass.labprogdina.entity;
+package br.com.uvass.labprogdina.model.entity;
 
 import java.time.LocalTime;
 import java.util.List;

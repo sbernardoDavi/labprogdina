@@ -1,4 +1,4 @@
-package br.com.uvass.labprogdina.entity;
+package br.com.uvass.labprogdina.model.entity;
 
 public class Cidade {
     private Integer id;

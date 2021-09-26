@@ -1,5 +1,6 @@
-package br.com.uvass.labprogdina.entity;
+package br.com.uvass.labprogdina.model.entity;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
