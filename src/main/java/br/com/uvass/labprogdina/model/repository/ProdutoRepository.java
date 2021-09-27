@@ -4,11 +4,10 @@ import br.com.uvass.labprogdina.model.entity.Produto;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class ProdutoRepository  {
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public ProdutoRepository(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
@@ -21,7 +20,7 @@ public class ProdutoRepository  {
 
         public Produto adicionarProduto(Produto produto) throws Exception {
         String sql = "INSERT into produto(id, nome, descricao, fotoUrl, dataCadastro, dataHoraUltimaAtualizacao, valorUnitario) values (?, ?, ?, ?, ?, ?, ?)";
-        int insert = JdbcTemplate.update(sql,
+        int insert = jdbcTemplate.update(sql,
                 produto.getId(),
                 produto.getNome(),
                 produto.getDescricao(),
