@@ -1,28 +1,24 @@
-INSERT into produto(id, nome, descricao, dataCadastro, valorUnitario)
-VALUES('1', 'Chuteira Tiempo', 'Chuteira de campo da linha Tiempo', '2021-09-26 13:00:00.1021', '2');
+INSERT INTO produto(id, nome, descricao, valorUnitario, dataCadastro)
+VALUES (1, 'Bolo de Cenoura', 'Um delicioso bolo de cenoura', 5, '2021-09-21');
 
-INSERT into produto(id, nome, descricao, dataCadastro, valorUnitario)
-VALUES('2', 'Chuteira Adidas', 'Chuteira de campo da Adidas', '2021-09-26 13:00:00.1021', '2');
+INSERT INTO produto(id, nome, descricao, valorUnitario, dataCadastro)
+VALUES (2, 'Bolo de Chocolate', 'Um delicioso bolo de chocolate', 3, '2021-09-21');
 
-INSERT into produto(id, nome, descricao, dataCadastro, valorUnitario)
-VALUES('3', 'Chuteira Puma', 'Chuteira de futsal da Puma', '2021-09-26 13:00:00.1021', '2');
+INSERT INTO categoria(id, nome, descricao)
+VALUES (1, 'Bolos de pote', 'Todos os tipos de bolos vendidos no pote');
 
+INSERT INTO categoria(id, nome, descricao)
+VALUES (2, 'Bolos de casamento', 'Todos os tipos de bolos para casamento');
 
-INSERT into categoria(id, nome, descricao)
-VALUES ('2', 'Campo', 'Chuteiras para campo');
+INSERT INTO  produtoCategoria(id, produtoId, categoriaId)
+VALUES (1, 1, 1);
 
-INSERT into categoria(id, nome, descricao)
-VALUES ('3', 'Futsal', 'Chuteiras para futsal');
+INSERT INTO  produtoCategoria(id, produtoId, categoriaId)
+VALUES (2, 2, 2);
 
-INSERT into produtoCategoria(id, categoriaId, produtoId)
-VALUES (1, 2, 1);
+INSERT INTO promocao(id, valorPromocao, dataCadastro, dataInicio, dataFinal)
+VALUES (1, 6, '2021-09-21', '2021-09-22', '2021-09-26');
 
-INSERT into produtoCategoria(id, categoriaId, produtoId)
-VALUES (2, 3, 2);
-
-INSERT into promocaoItem(id, valorPromocao, produtoId, promocaoId)
-VALUES (1, '3', 1, 1);
-
-INSERT into tabelaPromocao(id, nome, descricao, dataInicial, dataFinal)
-VALUES(1, 'Promoçao Adidas', 'Chuteiras para campo' '2021-09-26 13:00:00.1021', '021-09-26 23:00:00.1021')
+INSERT INTO itemPromocao(id, valorPromocao, dataCadastro, produtoId, categoriaId)
+VALUES (1, 8, '2021-09-21', 1, 1)
 

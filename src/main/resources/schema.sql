@@ -1,54 +1,46 @@
-CREATE TABLE produto (
-                         id                        INT  NOT NULL    PRIMARY KEY ,
-                         nome                      VARCHAR(20)  NOT NULL,
-                         descricao                 VARCHAR(100),
-                         fotoUrl                   VARCHAR(2000),
-                         dataCadastro              DATE     NOT NULL,
-                         dataUltimaAtualizacao     TIMESTAMP    NOT NULL,
-                         valorUnitario             DECIMAL  NOT NULL,
-);
+CREATE Table produto(
+    id int not null,
+    nome varchar(30) not null,
+    descricao varchar(200),
+    valorUnitario decimal,
+    dataCadastro date,
 
-CREATE TABLE categoria(
-                          id                  INT            NOT NULL PRIMARY KEY ,
-                          nome                VARCHAR (20)   NOT NULL,
-                          descricao           VARCHAR (100),
-                          ImagemSimboloUrl    VARCHAR (2000),
+)
 
-);
+CREATE Table categoria(
+    id int not null,
+    nome varchar(30),
+    descricao varchar(200),
 
+)
 
-CREATE TABLE produtoCategoria (
-                                  id           INT  NOT NULL    PRIMARY KEY ,
-                                  categoriaId  INT  NOT NULL,
-                                  produtoId    INT  NOT NULL,
+CREATE Table produtoCategoria(
+    id int not null,
+    produtoId int not null,
+    categoriaId int not null,
 
+    FOREIGN KEY (produtoId) references produto(id),
+    FOREIGN KEY (categoriaId) references categoria(id),
 
-                                  FOREIGN KEY (produtoId)   REFERENCES produto(id),
-                                  FOREIGN KEY (categoriaId) REFERENCES categoria(id),
+)
 
-);
+CREATE Table Promocao(
+    id int not null,
+    valorPromocao decimal,
+    dataCadastro date,
+    dataInicio date,
+    dataFinal date,
 
-CREATE TABLE promocaoItem (
-                              id                    INT     NOT NULL    PRIMARY KEY ,
-                              valorPromocao         DECIMAL     NOT NULL,
-                              dataCadastro          DATE    NOT NULL,
-                              dataUltimaAtualizacao TIMESTAMP   NOT NULL,
-                              produtoId             INT NOT     NULL,
-                              promocaoId            INT NOT     NULL,
+)
 
-                              FOREIGN KEY (produtoId) REFERENCES produto(id),
-                              FOREIGN KEY (promocaoId) REFERENCES tabelaPromocao(id),
+CREATE Table itemPromocao(
+    id int not null,
+    valorPromocao decimal,
+    dataCadastro date,
+    produtoId int not null,
+    categoriaId int not null,
 
-);
+    FOREIGN KEY (produtoId) references produto(id),
+    FOREIGN KEY (categoriaId) references categoria(id),
 
-CREATE TABLE tabelaPromocao(
-                               id                    INT    NOT NULL    PRIMARY KEY ,
-                               nome                  VARCHAR(20)    NOT NULL,
-                               descricao             VARCHAR(100) ,
-                               dataCadastro          DATE   NOT NULL,
-                               dataInicial           DATE   NOT NULL,
-                               dataFinal             DATE   NOT NULL,
-                               dataUltimaAtualizacao TIMESTAMP  NOT NULL,
-);
-
-
+)
