@@ -1,8 +1,7 @@
 package br.com.uvass.labprogdina.model.entity;
 
-import org.apache.tomcat.jni.Local;
 
-import java.sql.Date;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
